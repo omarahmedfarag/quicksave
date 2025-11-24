@@ -301,7 +301,7 @@ main {
     display: grid;
     /* FIX: Set to exactly 5 columns per row with fixed equal width */
     grid-template-columns: repeat(5, 1fr); 
-    gap: 20px; 
+    gap: 10px; 
     padding: 10px 30px;
     /* ADD: Max width to contain the grid and center it (ideal for 5 columns) */
     max-width: 100%; 
@@ -334,7 +334,6 @@ main {
     flex-direction: column;
     /* FIX: Reduced height for compact cards */
     height: 130px;
-    width: 100%;
     min-width: 0;
     overflow: hidden;
 }
@@ -673,16 +672,70 @@ input[type="text"]:focus, input[type="url"]:focus {
         align-items: stretch;
         width: 100%;
         margin-top: 10px;
+        margin-bottom: 15px;
     }
     #search-input {
         width: 100%;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
     .custom-dropdown {
         width: 100%;
     }
     .dropdown-trigger {
+        display: none;
+    }
+    
+    /* Radio button layout for mobile */
+    .dropdown-menu {
+        position: static;
+        display: flex !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+        padding: 10px 0;
+        border: none;
+        background: none;
+        box-shadow: none;
+        justify-content: flex-start;
+    }
+    
+    .dropdown-menu.open {
+        display: flex !important;
+    }
+    
+    .dropdown-item {
+        flex: 1;
+        min-width: 80px;
+        padding: 8px 10px;
+        border: 1px solid var(--border-color);
+        background-color: var(--card-background);
+        border-radius: 4px;
+        text-align: center;
+        font-size: 0.85em;
+    }
+    
+    .dropdown-item.active {
+        background-color: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+    }
+    
+    /* New Topic button - full width */
+    #new-topic-button {
         width: 100%;
+        margin-top: 15px;
+    }
+    
+    /* Delete button - icon only on mobile */
+    #delete-all-button {
+        min-width: auto;
+        width: auto;
+        padding: 8px;
+    }
+    
+    #delete-all-button span {
+        display: none;
     }
 
     /* Card Grid drops to 2 columns */
